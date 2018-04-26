@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ALPVIEW监控展示</title>
+    
+    <!-- Bootstrap css -->
+    <link href="https://magicbox.bkclouds.cc/static_api/v3/assets/bootstrap-3.3.4/css/bootstrap_noresponsive.css" rel="stylesheet">
+    <link href="https://magicbox.bkclouds.cc/static_api/v3/assets/fontawesome/css/font-awesome.css" rel="stylesheet">
+    
+    <link href="https://magicbox.bkclouds.cc/static_api/v3/bk/css/bk.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <!-- 以下两个插件用于在IE8以及以下版本浏览器支持HTML5元素和媒体查询，如果不需要用可以移除 -->
+    <!--[if lt IE 9]-->
+    <script src="https://magicbox.bkclouds.cc/static_api/v3/assets/js/html5shiv.min.js"></script>
+    <script src="https://magicbox.bkclouds.cc/static_api/v3/assets/js/respond.min.js"></script>
+    <script type="text/javascript" src="../../static/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../../static/js/front-endPage.js"></script><!-- 前台分页 -->
+    <script type="text/javascript" src="../../static/js/shujv2.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../static/css/table.css">
+    <style>
+         table{
+             width:600px;
+             text-align:center;
+             }
+         table tr th,td{
+             height:30px;
+             line-height:30px;
+             border:1px solid #ccc;
+             }
+          #pageStyle{
+             display:inline-block;
+             width:32px;
+             height:32px;
+             border:1px solid #CCC;
+             line-height:32px;
+             text-align:center;
+             color:#999;
+             margin-top:20px;
+             text-decoration:none;
+
+             }
+          #pageStyle:hover{
+              background-color:#CCC;
+              }
+          #pageStyle .active{
+              background-color:#0CF;
+              color:#ffffff;
+              }
+        </style>
+</head>
+<body>
+<div class="wrap">
+    <!-- 头部 -->
+    <header>
+        <div class="navbar navbar-black">
+            <div class="navbar-container">
+                <div class="navbar-header pull-left">
+                    <a class="navbar-brand" href="#">
+                        <i class="fa fa-leaf"></i>
+                        APLVIEW监控
+                    </a>
+                </div>
+                
+                <div class="navbar-header pull-right">
+                    <ul class="nav">
+                        <li class="user-info">
+                            <a href="#">
+                                <img class="img-rounded" src="../../static/img/avatar.png">
+                                <span>admin</span>
+                            </a>
+                        </li>                   
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- 头部 -->
+
+    <!-- 侧边栏 -->
+    <div class="king-vertical-nav4">
+        <div class="sidebar-inner">
+            <ul class="navi">
+                <li class="current active">
+                    <a href="index.html">
+                        <i class="fa fa-gear"></i>首页
+                    </a>
+                </li>
+                <li class="has_submenu">
+                    <a href="javascript:;">
+                        <i class="fa fa-wrench"></i>图表
+                        <span class="pull-right"><i class="fa fa-angle-down"></i></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="form1.html">线形图<i class="fa fa-chevron-right pull-right"></i></a>
+                        </li>
+                        <li>
+                            <a href="form2.html">饼状图（null）<i class="fa fa-chevron-right pull-right"></i></a>
+                        </li>
+                        <li>
+                            <a href="form3.html">动态图（null）<i class="fa fa-chevron-right pull-right"></i></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="has_submenu">
+                    <a href="javascript:;">
+                        <i class="fa fa-tasks"></i>告警记录查询
+                        <span class="pull-right"><i class="fa fa-angle-down"></i></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="table1.html">时间段查询（null）<i class="fa fa-chevron-right pull-right"></i></a>
+                        </li>
+                        <li>
+                            <a href="table2.html">设备名查询（null）<i class="fa fa-chevron-right pull-right"></i></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="last has_submenu">
+                    <a href="javascript:;">
+                        <i class="fa fa-ellipsis-h"></i>其他
+                        <span class="pull-right"><i class="fa fa-angle-down"></i></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="blank.html">空白<i class="fa fa-chevron-right pull-right"></i></a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="king-main-container">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3">
+                    <!-- 样例 Start -->
+                    <div class="king-widget1">
+                        <div class="icon-wrap">
+                            <span class="fa-stack king-bg-info">
+                                <i class="fa fa-flag fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </div>
+                        <div class="text-wrap">
+                            <!-- 查询今天00：00开始的告警数量统计 -->
+                            <h3>实际数量</h3>
+                            <p>
+                                今日告警数量
+                            </p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="progress progress-xs">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                <span class="sr-only">80% Complete</span>
+                            </div>
+                        </div>
+                        <p>
+                            《对比相同时间段的数据》
+                            同比昨天增长15%
+                        </p>
+                    </div>
+                    <!-- 样例 End -->
+                </div>
+                <div class="col-sm-3">
+                    <!-- 样例 Start -->
+                    <div class="king-widget1">
+                        <div class="icon-wrap">
+                            <span class="fa-stack king-bg-danger">
+                                <i class="fa fa-bell fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </div>
+                        <div class="text-wrap">
+                            <h3>1,234</h3>
+                            <p>
+                                周期告警数量
+                            </p>
+                        </div>
+                        <div class="clear">
+                        </div>
+                        <div class="progress progress-xs">
+                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 65%">
+                                <span class="sr-only">65% Complete</span>
+                            </div>
+                        </div>
+                        <p>
+                            ？？？
+                            同比昨天增长5%
+                        </p>
+                    </div>
+                    <!-- 样例 End -->
+                </div>
+                <div class="col-sm-3">
+                    <!-- 样例 Start -->
+                    <div class="king-widget1">
+                        <div class="icon-wrap">
+                            <span class="fa-stack king-bg-success">
+                                <i class="fa fa-cloud-download fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </div>
+                        <div class="text-wrap">
+                            <h3>5,214</h3>
+                            <p>
+                                链路告警
+                            </p>
+                        </div>
+                        <div class="clear">
+                        </div>
+                        <div class="progress progress-xs">
+                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%">
+                                <span class="sr-only">95% Complete</span>
+                            </div>
+                        </div>
+                        <p>
+                            同比昨天增长12%
+                        </p>
+                    </div>
+                    <!-- 样例 End -->
+                </div>
+                <div class="col-sm-3">
+                    <!-- 样例 Start -->
+                    <div class="king-widget1">
+                        <div class="icon-wrap">
+                            <span class="fa-stack king-bg-warning">
+                                <i class="fa fa-cloud-download fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </div>
+                        <div class="text-wrap">
+                            <h3>5,214</h3>
+                            <p>
+                                警告消息
+                            </p>
+                        </div>
+                        <div class="clear">
+                        </div>
+                        <div class="progress progress-xs">
+                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 25%">
+                                <span class="sr-only">25% Complete</span>
+                            </div>
+                        </div>
+                        <p>
+                            同比昨天增长12%
+                        </p>
+                    </div>
+                    <!-- 样例 End -->
+                </div>
+            </div>
+
+            <div class="row mt20">
+                <div class="col-lg-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">活动告警</h3>
+                        </div>
+                        <div class="list-group">
+                           <!-- 实时告警数据展示 -->
+                            <div id="histroyBox"></div>
+                            <script type="text/javascript">
+                                //前台分页的样子
+                                $('#histroyBox').CJJTable({
+                                   'title':["节点/IP","告警名称","告警内容","触发时间","告警类型"],//thead中的标题 必填
+                                   'body':["taskCode","startAddr","endAddr","varietiesTypeName","createDate","customerName"],//tbody td 取值的字段 必填
+                                   'display':[1,1,1,1,1,2],//隐藏域，1显示，2隐藏 必填
+                                   'pageNUmber':10,//每页显示的条数 选填
+                                   'pageLength':data.length,//选填
+                                   'url':data,//数据源 必填
+                                   dbTrclick:function(e){//双击tr事件
+                                    alert(e.find('.taskCode').html())
+                                   }
+                                });
+                                //后台分页的样子
+                                /*$('#histroyBox').CJJTable({
+                                    'title':["节点/IP","告警名称","告警内容","触发时间","告警类型"],//thead中的标题 必填
+                                    'body':["contactName","contactMobliePhone","carrierName","taskNum","taskCustomerExpectPrice","taskCustomerBudgetFreight"],//tbody td 取值的字段 必填
+                                    'display':[1,1,1,1,2,2],//隐藏域，1显示，2隐藏 必填
+                                    'pageJson':{
+                                        "taskId":528710,
+                                        "pageSize":100,//ajax请求参数中的每页展示数量 选填
+                                        "token":"yJUmunFeG3REqisYAmCfeA"
+                                    },
+                                    'url':'api/quoted/quotedList',//数据源 必填
+                                    dbTrclick:function(that){ //双击tr事件
+                                        alert(that.find('.contactName').html())
+                                    }
+                                });*/
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">拓扑图</h3>
+                        </div>
+                        <div class="table-responsive">
+                            <!-- 拓扑引擎 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
+<script src="https://magicbox.bkclouds.cc/static_api/v3/assets/js/jquery-1.10.2.min.js"></script>
+<!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->
+<script src="https://magicbox.bkclouds.cc/static_api/v3/assets/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+
+<script src="https://magicbox.bkclouds.cc/static_api/v3/bk/js/bk.js"></script>
+
+<script src="./js/index.js"></script>
+
+
+</body>
+</html>
